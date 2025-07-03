@@ -6,13 +6,26 @@
 
 - Implement a dashboard interface for managing tasks, including features like task lists, creation, editing, and deletion.
 
+- - Navbar
+- - 2 frame layout
+- - task details, etc on right
+- - task list box with management buttons on left
+
 ### Task Details Display
 
 - Design a detailed view for individual tasks, displaying task information and allowing users to modify task details.
+- - Display of simple task info when selected in listbox
+- - Full display when view button selected by listbox
+- - edit page when edit button selected on page
+- - buttons to mark as active task, done task, failed task, inactive task.
 
 ### Task Creation and Editing Pages
 
 - Develop forms for creating and editing tasks, incorporating TypeScript types for data validation and error handling.
+- - form for adding/editing tasks
+- - if add flag set to true in props will add info as new task
+- - if add flag set to false in props will update task selected
+
 
 ### Authentication and Authorization Pages
 
