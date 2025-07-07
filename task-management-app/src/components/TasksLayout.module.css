@@ -1,0 +1,57 @@
+.tasksLayout {
+  padding: 8px;
+  background-color: var(--win98-bg);
+  min-height: calc(100vh - 60px);
+}
+
+.mainWindow {
+  background-color: var(--win98-surface);
+  border: 2px outset var(--win98-surface);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  height: calc(100vh - 100px);
+}
+
+.titleBar {
+  background: linear-gradient(90deg, var(--win98-active-title) 0%, #1084d0 100%);
+  color: var(--win98-active-title-text);
+  padding: 2px 4px;
+  font-weight: bold;
+  font-size: 11px;
+  border-bottom: 1px solid var(--win98-button-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.windowContent {
+  display: flex;
+  height: calc(100% - 20px);
+  background-color: var(--win98-surface);
+}
+
+.leftPanel {
+  flex: 1;
+  border-right: 1px solid var(--win98-button-shadow);
+  padding: 8px;
+  background-color: var(--win98-surface);
+}
+
+.rightPanel {
+  flex: 1;
+  padding: 8px;
+  background-color: var(--win98-surface);
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* Important for flex children to shrink */
+}
+
+.sectionTitle {
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--win98-text);
+  margin: 0 0 8px 0;
+  padding: 2px 4px;
+  background-color: var(--win98-surface);
+  border: 1px outset var(--win98-surface);
+  flex-shrink: 0; /* Prevent title from shrinking */
+}

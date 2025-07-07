@@ -1,0 +1,78 @@
+.editTaskContainer {
+  background: var(--win98-bg);
+  padding: 16px;
+  min-height: 100vh;
+}
+
+.editHeader {
+  background: var(--win98-surface);
+  border: 2px solid;
+  border-color: var(--win98-button-highlight) var(--win98-button-shadow) var(--win98-button-shadow) var(--win98-button-highlight);
+  padding: 8px 12px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.editIcon {
+  font-size: 14px;
+}
+
+.editTitle {
+  color: var(--win98-text);
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  background: var(--win98-bg);
+}
+
+.loadingBox {
+  background: var(--win98-surface);
+  border: 2px solid;
+  border-color: var(--win98-button-highlight) var(--win98-button-shadow) var(--win98-button-shadow) var(--win98-button-highlight);
+  padding: 20px;
+  text-align: center;
+  min-width: 250px;
+}
+
+.loadingTitle {
+  color: var(--win98-text);
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.progressBar {
+  background: var(--win98-bg);
+  border: 2px solid;
+  border-color: var(--win98-button-shadow) var(--win98-button-highlight) var(--win98-button-highlight) var(--win98-button-shadow);
+  height: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progressFill {
+  background: linear-gradient(90deg, #0000ff 25%, transparent 25%, transparent 50%, #0000ff 50%, #0000ff 75%, transparent 75%);
+  background-size: 8px 8px;
+  height: 100%;
+  width: 100%;
+  animation: progress 1s linear infinite;
+}
+
+@keyframes progress {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 8px 0;
+  }
+}

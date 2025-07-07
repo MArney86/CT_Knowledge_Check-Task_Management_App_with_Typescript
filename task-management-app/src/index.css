@@ -1,68 +1,289 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+/* Import Bootstrap */
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css');
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+:root {
+  /* Windows 98/2000 System Colors */
+  --win98-bg: #c0c0c0;
+  --win98-surface: #c0c0c0;
+  --win98-button-face: #c0c0c0;
+  --win98-button-highlight: #ffffff;
+  --win98-button-shadow: #808080;
+  --win98-button-dark-shadow: #404040;
+  --win98-text: #000000;
+  --win98-window-frame: #808080;
+  --win98-active-title: #0a246a;
+  --win98-active-title-text: #ffffff;
+  --win98-inactive-title: #808080;
+  --win98-menu-bg: #c0c0c0;
+  --win98-menu-text: #000000;
+  --win98-highlight: #316ac5;
+  --win98-highlight-text: #ffffff;
+  
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  line-height: 1.2;
+  font-weight: 400;
+  font-size: 11px;
+
+  color: var(--win98-text);
+  background-color: var(--win98-bg);
 
   font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
 }
 
+/* Global Bootstrap overrides for consistent Windows 98 theme */
+.btn {
+  border: 2px outset var(--win98-button-face) !important;
+  padding: 2px 8px !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  font-family: inherit !important;
+  background-color: var(--win98-button-face) !important;
+  color: var(--win98-text) !important;
+  cursor: default !important;
+  transition: none !important;
+  min-height: 23px !important;
+  box-sizing: border-box !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.btn:hover {
+  background-color: var(--win98-button-face) !important;
+  border: 2px outset var(--win98-button-face) !important;
+  color: var(--win98-text) !important;
+}
+
+.btn:active, .btn.active {
+  border: 2px inset var(--win98-button-face) !important;
+  padding: 3px 7px 1px 9px !important;
+  background-color: var(--win98-button-face) !important;
+  color: var(--win98-text) !important;
+  box-shadow: none !important;
+}
+
+.btn:focus, .btn:focus-visible {
+  outline: 1px dotted var(--win98-text) !important;
+  outline-offset: -4px !important;
+  box-shadow: none !important;
+}
+
+.btn:disabled {
+  color: var(--win98-button-shadow) !important;
+  border: 2px outset var(--win98-button-face) !important;
+  cursor: not-allowed !important;
+  background-color: var(--win98-button-face) !important;
+}
+
+/* Global form controls */
+.form-control, .form-select {
+  border: 2px inset var(--win98-surface) !important;
+  background-color: #ffffff !important;
+  color: var(--win98-text) !important;
+  font-family: inherit !important;
+  font-size: 11px !important;
+  padding: 2px 4px !important;
+  box-sizing: border-box !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.form-control:focus, .form-select:focus {
+  outline: none !important;
+  background-color: var(--win98-highlight) !important;
+  color: var(--win98-highlight-text) !important;
+  border-color: var(--win98-surface) !important;
+  box-shadow: none !important;
+}
+
+/* Global card styling */
+.card {
+  background-color: var(--win98-surface) !important;
+  border: 2px outset var(--win98-surface) !important;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3) !important;
+  border-radius: 0 !important;
+}
+
+.card-header {
+  background: linear-gradient(90deg, var(--win98-active-title) 0%, #1084d0 100%) !important;
+  color: var(--win98-active-title-text) !important;
+  padding: 2px 4px !important;
+  font-weight: bold !important;
+  font-size: 11px !important;
+  border-bottom: 1px solid var(--win98-button-shadow) !important;
+  border-radius: 0 !important;
+}
+
+.card-body {
+  padding: 8px !important;
+  background-color: var(--win98-surface) !important;
+}
+
+/* Basic global styles */
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  font-weight: 400;
+  color: var(--win98-highlight);
+  text-decoration: underline;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--win98-active-title);
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+  padding: 0;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--win98-bg);
+  overflow-x: auto;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: bold;
+  margin: 8px 0;
 }
 
+h2 {
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: bold;
+  margin: 6px 0;
+}
+
+h3 {
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: bold;
+  margin: 4px 0;
+}
+
+/* Classic Windows 98 Button Style (for non-Bootstrap buttons) */
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+  border: 2px outset var(--win98-button-face);
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 400;
   font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  background-color: var(--win98-button-face);
+  color: var(--win98-text);
+  cursor: default;
+  transition: none;
+  min-height: 23px;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+button:hover {
+  background-color: var(--win98-button-face);
+  border: 2px outset var(--win98-button-face);
+}
+
+button:active {
+  border: 2px inset var(--win98-button-face);
+  padding: 3px 7px 1px 9px;
+}
+
+button:focus {
+  outline: 1px dotted var(--win98-text);
+  outline-offset: -4px;
+}
+
+button:disabled {
+  color: var(--win98-button-shadow);
+  border: 2px outset var(--win98-button-face);
+  cursor: not-allowed;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="date"],
+textarea,
+select {
+  border: 2px inset var(--win98-surface);
+  background-color: #ffffff;
+  color: var(--win98-text);
+  font-family: inherit;
+  font-size: 11px;
+  padding: 2px 4px;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  background-color: var(--win98-highlight);
+  color: var(--win98-highlight-text);
+}
+
+/* Windows-style utility classes */
+.win98-panel {
+  background-color: var(--win98-surface);
+  border: 2px outset var(--win98-surface);
+  padding: 4px;
+}
+
+.win98-panel-inset {
+  background-color: var(--win98-surface);
+  border: 2px inset var(--win98-surface);
+  padding: 4px;
+}
+
+.win98-window {
+  background-color: var(--win98-surface);
+  border: 2px outset var(--win98-surface);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.win98-title-bar {
+  background: linear-gradient(90deg, var(--win98-active-title) 0%, #1084d0 100%);
+  color: var(--win98-active-title-text);
+  padding: 2px 4px;
+  font-weight: bold;
+  font-size: 11px;
+  border-bottom: 1px solid var(--win98-button-shadow);
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--win98-surface);
+  border: 1px inset var(--win98-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--win98-surface);
+  border: 2px outset var(--win98-surface);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--win98-button-face);
+}
+
+::-webkit-scrollbar-corner {
+  background-color: var(--win98-surface);
+}
+
+/* Remove modern styling */
+* {
+  box-sizing: border-box;
+}
+
+/* Disable smooth scrolling for that authentic feel */
+html {
+  scroll-behavior: auto;
 }

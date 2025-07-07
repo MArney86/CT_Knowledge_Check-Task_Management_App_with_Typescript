@@ -1,0 +1,59 @@
+.taskList {
+  background-color: var(--win98-surface);
+  border: 2px outset var(--win98-surface);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin: 8px;
+}
+
+.titleBar {
+  background: linear-gradient(90deg, var(--win98-active-title) 0%, #1084d0 100%);
+  color: var(--win98-active-title-text);
+  padding: 2px 4px;
+  font-weight: bold;
+  font-size: 11px;
+  border-bottom: 1px solid var(--win98-button-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content {
+  padding: 8px;
+  background-color: var(--win98-surface);
+}
+
+.userTitle {
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--win98-text);
+  margin: 0 0 8px 0;
+}
+
+.taskListLayout {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.listBoxSection {
+  flex: 1;
+}
+
+.buttonSection {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 80px;
+}
+
+.actionButton {
+  min-width: 75px !important;
+  padding: 4px 8px !important;
+  font-size: 11px !important;
+  white-space: nowrap;
+}
+
+.actionButton:disabled {
+  color: var(--win98-button-shadow) !important;
+  cursor: not-allowed !important;
+}

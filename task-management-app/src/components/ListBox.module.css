@@ -1,0 +1,41 @@
+.listBoxContainer {
+  margin: 4px 0;
+}
+
+.listBox {
+  border: 2px inset var(--win98-surface);
+  background-color: #ffffff;
+}
+
+.select {
+  width: 100%;
+  border: none;
+  background-color: #ffffff;
+  color: var(--win98-text);
+  font-family: inherit;
+  font-size: 11px;
+  padding: 2px 4px;
+  outline: none;
+  cursor: default;
+}
+
+.select:focus {
+  background-color: var(--win98-highlight);
+  color: var(--win98-highlight-text);
+}
+
+.option {
+  background-color: #ffffff;
+  color: var(--win98-text);
+  padding: 1px 4px;
+  font-size: 11px;
+}
+
+.option:hover {
+  background-color: var(--win98-highlight);
+  color: var(--win98-highlight-text);
+}
+
+.option:disabled {
+  color: var(--win98-button-shadow);
+}

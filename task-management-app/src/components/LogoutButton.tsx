@@ -1,6 +1,5 @@
 //LogoutButton.tsx
 import { useAuth0 } from "@auth0/auth0-react";
-import { Button } from "react-bootstrap";
 
 const LogoutButton: React.FC = () => {
   const { logout, isAuthenticated } = useAuth0();
@@ -13,7 +12,7 @@ const LogoutButton: React.FC = () => {
     });
   };
 
-  if(isAuthenticated) return (<Button onClick={handleLogout}>Log Out</Button>)
+  if(isAuthenticated) return (<button onClick={handleLogout} className="btn">🚪 Log Out</button>)
   return null;
 }
 

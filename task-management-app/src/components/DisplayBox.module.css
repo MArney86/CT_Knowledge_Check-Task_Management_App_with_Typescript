@@ -1,0 +1,77 @@
+.displayBox {
+  background-color: #ffffff;
+  border: 2px inset var(--win98-surface);
+  padding: 8px;
+  font-size: 11px;
+  color: var(--win98-text);
+  overflow-y: auto;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Take remaining space in parent */
+  min-height: 0; /* Allow shrinking */
+}
+
+.displayBox.preview {
+  max-height: 250px;
+  flex: 0 0 auto; /* Don't grow or shrink, fixed size */
+}
+
+.displayBox.fullView {
+  flex: 1; /* Take all available space */
+  min-height: 300px;
+}
+
+.placeholder {
+  color: var(--win98-button-shadow);
+  font-style: italic;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.taskDetails {
+  font-size: 11px;
+  color: var(--win98-text);
+}
+
+.taskTitle {
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.taskDescription {
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.taskMeta {
+  font-size: 10px;
+  color: var(--win98-button-shadow);
+  border-top: 1px solid var(--win98-button-shadow);
+  padding-top: 4px;
+  margin-top: 8px;
+}
+
+.viewButton {
+  margin-top: 8px !important;
+  font-size: 11px !important;
+  padding: 2px 8px !important;
+}
+
+/* Full view container styles */
+.displayBox.fullView .viewTaskContainer {
+  height: 100%;
+}
+
+.displayBox.fullView .taskWindow {
+  height: 100%;
+  min-height: 350px;
+}
+
+.viewTaskWrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}

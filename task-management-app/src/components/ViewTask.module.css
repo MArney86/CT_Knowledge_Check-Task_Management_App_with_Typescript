@@ -1,0 +1,244 @@
+.viewTaskContainer {
+  background: var(--win98-bg);
+  padding: 0;
+  min-height: auto;
+  width: 100%;
+  height: 100%;
+}
+
+.taskWindow {
+  background: var(--win98-surface);
+  border: 2px solid;
+  border-color: var(--win98-button-highlight) var(--win98-button-shadow) var(--win98-button-shadow) var(--win98-button-highlight);
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.titleBar {
+  background: var(--win98-active-title);
+  color: var(--win98-active-title-text);
+  padding: 4px 8px;
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.closeButton {
+  background: var(--win98-surface);
+  border: 1px solid var(--win98-button-shadow);
+  color: var(--win98-text);
+  font-family: 'MS Sans Serif', sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  width: 16px;
+  height: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.closeButton:hover {
+  background: var(--win98-surface);
+}
+
+.closeButton:active {
+  border: 1px solid var(--win98-button-highlight);
+}
+
+.windowContent {
+  padding: 12px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.taskHeader {
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--win98-button-shadow);
+}
+
+.taskTitle {
+  color: var(--win98-text);
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 0 8px 0;
+}
+
+.taskMeta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.statusBadge,
+.priorityBadge {
+  padding: 2px 8px;
+  border: 1px solid var(--win98-button-shadow);
+  background: var(--win98-surface);
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  border-radius: 0;
+}
+
+.statusBadge.pending {
+  background: #ffffcc;
+  color: #666600;
+}
+
+.statusBadge.in-progress {
+  background: #cceeff;
+  color: #003366;
+}
+
+.statusBadge.completed {
+  background: #ccffcc;
+  color: #006600;
+}
+
+.statusBadge.cancelled {
+  background: #ffcccc;
+  color: #660000;
+}
+
+.statusBadge.failed {
+  background: #ffcccc;
+  color: #990000;
+}
+
+.priorityBadge.low {
+  background: #e6f3ff;
+  color: #0066cc;
+}
+
+.priorityBadge.medium {
+  background: #fff5e6;
+  color: #cc6600;
+}
+
+.priorityBadge.high {
+  background: #ffe6e6;
+  color: #cc0000;
+}
+
+.taskDetails {
+  margin-bottom: 20px;
+}
+
+.detailSection {
+  margin-bottom: 16px;
+}
+
+.sectionTitle {
+  color: var(--win98-text);
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  margin: 0 0 6px 0;
+  border-bottom: 1px solid var(--win98-button-shadow);
+  padding-bottom: 2px;
+}
+
+.descriptionBox {
+  background: var(--win98-bg);
+  border: 2px solid;
+  border-color: var(--win98-button-shadow) var(--win98-button-highlight) var(--win98-button-highlight) var(--win98-button-shadow);
+  padding: 8px;
+  color: var(--win98-text);
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 11px;
+  min-height: 60px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.dateInfo {
+  color: var(--win98-text);
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 11px;
+  background: var(--win98-surface);
+  border: 1px solid var(--win98-button-shadow);
+  padding: 4px 8px;
+  display: inline-block;
+}
+
+.dueDateInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.overdue {
+  color: #cc0000;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.dueToday {
+  color: #ff6600;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.dueSoon {
+  color: #cc6600;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.dueNormal {
+  color: var(--win98-text);
+  font-size: 10px;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  padding-top: 16px;
+  border-top: 1px solid var(--win98-button-shadow);
+}
+
+.actionButton {
+  min-width: 100px;
+  padding: 6px 16px;
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 11px;
+  font-weight: normal;
+  background: var(--win98-surface);
+  border: 2px solid;
+  border-color: var(--win98-button-highlight) var(--win98-button-shadow) var(--win98-button-shadow) var(--win98-button-highlight);
+  color: var(--win98-text);
+  cursor: pointer;
+}
+
+.actionButton:hover {
+  background: var(--win98-surface);
+}
+
+.actionButton:active {
+  border-color: var(--win98-button-shadow) var(--win98-button-highlight) var(--win98-button-highlight) var(--win98-button-shadow);
+}
+
+.editButton {
+  background: #cceeff;
+  color: #003366;
+}
+
+.deleteButton {
+  background: #ffcccc;
+  color: #660000;
+}
+
+.deleteButton:hover {
+  background: #ffaaaa;
+}

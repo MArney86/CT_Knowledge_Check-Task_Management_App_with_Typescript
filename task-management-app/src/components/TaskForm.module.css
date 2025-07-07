@@ -1,0 +1,110 @@
+.taskForm {
+  background: var(--win98-surface);
+  border: 2px solid;
+  border-color: var(--win98-button-highlight) var(--win98-button-shadow) var(--win98-button-shadow) var(--win98-button-highlight);
+  padding: 12px;
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 11px;
+}
+
+.formTitle {
+  color: var(--win98-text);
+  font-weight: bold;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--win98-button-shadow);
+  padding-bottom: 4px;
+}
+
+.formGroup {
+  margin-bottom: 12px;
+}
+
+.formLabel {
+  display: block;
+  color: var(--win98-text);
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.formControl {
+  background: var(--win98-bg);
+  border: 2px solid;
+  border-color: var(--win98-button-shadow) var(--win98-button-highlight) var(--win98-button-highlight) var(--win98-button-shadow);
+  color: var(--win98-text);
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 11px;
+  padding: 2px 4px;
+  width: 100%;
+}
+
+.formControl:focus {
+  outline: 1px dotted var(--win98-text);
+  outline-offset: -1px;
+}
+
+.formSelect {
+  background: var(--win98-surface);
+  border: 2px solid;
+  border-color: var(--win98-button-shadow) var(--win98-button-highlight) var(--win98-button-highlight) var(--win98-button-shadow);
+  color: var(--win98-text);
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 11px;
+  padding: 2px;
+  width: 100%;
+}
+
+.textArea {
+  resize: none;
+  height: 60px;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--win98-button-shadow);
+}
+
+.actionButton {
+  min-width: 75px;
+  padding: 4px 16px;
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 11px;
+  font-weight: normal;
+  background: var(--win98-surface);
+  border: 2px solid;
+  border-color: var(--win98-button-highlight) var(--win98-button-shadow) var(--win98-button-shadow) var(--win98-button-highlight);
+  color: var(--win98-text);
+  cursor: pointer;
+}
+
+.actionButton:hover {
+  background: var(--win98-surface);
+}
+
+.actionButton:active {
+  border-color: var(--win98-button-shadow) var(--win98-button-highlight) var(--win98-button-highlight) var(--win98-button-shadow);
+}
+
+.primaryButton {
+  font-weight: bold;
+}
+
+.cancelButton {
+  background: var(--win98-surface);
+}
+
+.priorityHigh {
+  color: #c00000;
+  font-weight: bold;
+}
+
+.priorityMedium {
+  color: #ff8000;
+}
+
+.priorityLow {
+  color: var(--win98-text);
+}
