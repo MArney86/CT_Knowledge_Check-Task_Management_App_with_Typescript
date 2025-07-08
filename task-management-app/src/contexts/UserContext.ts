@@ -1,5 +1,7 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import type { TaskState } from '../components/TaskState';
+import type { TaskActions } from '../components/TaskActions';
+import TaskReducer from '../components/TaskReducer';
 
 // Define the user object type
 interface User {
@@ -13,6 +15,7 @@ interface User {
 interface UserContextType {
   user: User;
   setUser: (user: User) => void;
+  dispatchTasks: (action: TaskActions) => void;
 }
 
 // Create context with proper typing and default values
@@ -20,6 +23,9 @@ const UserContext = React.createContext<UserContextType>({
   user: { name: '', email: '', picture: '', tasks: { tasks: [] } },
   setUser: () => {
     console.warn('setUser called outside of UserContextProvider');
+  },
+  dispatchTasks: () => {
+    console.warn('dispatchTasks called outside of UserContextProvider');
   }
 });
 
@@ -32,9 +38,30 @@ export const UserContextProvider: React.FC<{ children: React.ReactNode }> = ({ c
     tasks: { tasks: [] }
   });
 
+  
+  // Create a dispatch function that uses the task reducer to update user state
+  const dispatchTasksWithUser = (action: TaskActions) => {
+    setUser(prevUser => {
+      const newTasks = TaskReducer(prevUser.tasks, action, prevUser.email);
+      const updatedUser = {
+        ...prevUser,
+        tasks: newTasks
+      };
+      
+      return updatedUser;
+    });
+  };
+
+  // Load tasks from localStorage when user changes
+  useEffect(() => {
+    if (user) {
+      console.log('User context updated', user);
+    }
+  }, [user]);
+
   return React.createElement(
     UserContext.Provider,
-    { value: { user, setUser } },
+    { value: { user, setUser: setUser, dispatchTasks: dispatchTasksWithUser } },
     children
   );
 };

@@ -1,4 +1,4 @@
-import { useState, useEffect, type JSX } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelectionContext } from '../contexts/SelectionContext';
 import type { Selection } from '../contexts/SelectionContext';
 import styles from './ListBox.module.css';
@@ -11,8 +11,8 @@ type ListBoxProps = {
 };
 
 export default function ListBox({ items=[], defaultSelection=null, height='300px', placeholder='Select an item'}: ListBoxProps) {
-    const [listState, setListState] = useState<JSX.Element[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
+    const [selectedIndex, setSelectedIndex] = useState<number>(-1);
     const selected = useSelectionContext();
 
     if (!selected) {
@@ -24,16 +24,6 @@ export default function ListBox({ items=[], defaultSelection=null, height='300px
     };
 
     useEffect(() => {
-        if (items.length === 0) {
-            setLoading(false);
-            return;
-        }
-
-        const itemsHTML: JSX.Element[] = items.map((item, index) => {
-            return (<option key={index} value={item.id} className={styles.option}>{item.name}</option>);
-        });
-
-        setListState(itemsHTML);
         setLoading(false);
     }, [items]);
 
@@ -41,38 +31,44 @@ export default function ListBox({ items=[], defaultSelection=null, height='300px
         if (defaultSelection) {
             const selectedItem = items.find(item => item.id === defaultSelection);
             if (selectedItem) {
-                changeSelection({ selectionValue: selectedItem.id.toString(), selectionKey: items.indexOf(selectedItem).toString() });
+                const index = items.indexOf(selectedItem);
+                setSelectedIndex(index);
+                changeSelection({ selectionValue: selectedItem.id.toString(), selectionKey: index.toString() });
             }
         }
-    }, [defaultSelection]);
+    }, [defaultSelection, items]);
 
-  return (
-    <div className={styles.listBoxContainer}>
-        <div className={styles.listBox}>
-            <select 
-                id="list-box-select" 
-                name="list-box-select" 
-                className={styles.select}
-                style={{ height }} 
-                onChange={(e) => {
-                    const target = e.target as HTMLSelectElement;
-                    const selectedItem = items.find(item => item.id.toString() === target.value);
-                    if (selectedItem) {
-                        changeSelection({ 
-                            selectionValue: selectedItem.id.toString(), 
-                            selectionKey: items.indexOf(selectedItem).toString() 
-                        });
-                    }
-                }}
-            >
-                <option value="" disabled className={styles.option}>{placeholder}</option>
+    const handleItemClick = (item: any, index: number) => {
+        setSelectedIndex(index);
+        changeSelection({ 
+            selectionValue: item.id.toString(), 
+            selectionKey: index.toString() 
+        });
+    };
+
+    return (
+        <div className={styles.listBoxContainer}>
+            <div className={styles.listBox} style={{ height }}>
                 {loading ? (
-                    <option value="" disabled className={styles.option}>Loading Items...</option>
+                    <div className={styles.loadingItem}>Loading Items...</div>
+                ) : items.length === 0 ? (
+                    <div className={styles.emptyItem}>{placeholder}</div>
                 ) : (
-                    listState
+                    items.map((item, index) => (
+                        <div
+                            key={item.id}
+                            className={`${styles.listItem} ${index === selectedIndex ? styles.selected : ''}`}
+                            onClick={() => handleItemClick(item, index)}
+                            onDoubleClick={() => {
+                                // Dispatch view event on double-click
+                                window.dispatchEvent(new CustomEvent('viewTask'));
+                            }}
+                        >
+                            {item.name}
+                        </div>
+                    ))
                 )}
-            </select>
+            </div>
         </div>
-    </div>
-  );
+    );
 };

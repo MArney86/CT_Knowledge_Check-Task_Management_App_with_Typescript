@@ -1,6 +1,8 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import type { Task } from './Task';
+import { useUserContext } from '../contexts/UserContext';
+import EditTask from './EditTask';
 import styles from './ViewTask.module.css';
 
 interface ViewTaskProps {
@@ -11,26 +13,38 @@ interface ViewTaskProps {
 }
 
 const ViewTask: React.FC<ViewTaskProps> = ({ task, onEdit, onDelete, onClose }) => {
-  const getStatusIcon = (status: Task['status']) => {
-    switch (status) {
-      case 'pending': return '⏳';
-      case 'in-progress': return '🔄';
-      case 'completed': return '✅';
-      case 'cancelled': return '❌';
-      case 'failed': return '💥';
-      default: return '❓';
-    }
+  const { dispatchTasks } = useUserContext();
+  const [showEditModal, setShowEditModal] = useState(false);
+
+  const handleStatusChange = (newStatus: Task['status']) => {
+    dispatchTasks({
+      type: 'UPDATE_STATUS',
+      payload: [task.id, newStatus]
+    });
   };
 
-  const getPriorityIcon = (priority: Task['priority']) => {
-    switch (priority) {
-      case 'low': return '🔵';
-      case 'medium': return '🟡';
-      case 'high': return '🔴';
-      default: return '⚪';
-    }
+  const handlePriorityChange = (newPriority: Task['priority']) => {
+    dispatchTasks({
+      type: 'UPDATE_PRIORITY',
+      payload: [task.id, newPriority]
+    });
   };
 
+  const handleEditTask = () => {
+    setShowEditModal(true);
+  };
+
+  const handleTaskUpdated = (updatedTaskData: Partial<Task>) => {
+    dispatchTasks({
+      type: 'UPDATE_TASK',
+      payload: { ...task, ...updatedTaskData }
+    });
+    setShowEditModal(false);
+  };
+
+  const handleEditCancel = () => {
+    setShowEditModal(false);
+  };
   const formatDate = (date: Date) => {
     return new Intl.DateTimeFormat('en-US', {
       year: 'numeric',
@@ -64,12 +78,32 @@ const ViewTask: React.FC<ViewTaskProps> = ({ task, onEdit, onDelete, onClose }) 
           <div className={styles.taskHeader}>
             <h2 className={styles.taskTitle}>{task.name}</h2>
             <div className={styles.taskMeta}>
-              <span className={`${styles.statusBadge} ${styles[task.status]}`}>
-                {getStatusIcon(task.status)} {task.status.replace('-', ' ').toUpperCase()}
-              </span>
-              <span className={`${styles.priorityBadge} ${styles[task.priority]}`}>
-                {getPriorityIcon(task.priority)} {task.priority.toUpperCase()}
-              </span>
+              <div className={styles.statusDropdownContainer}>
+                <label className={styles.statusLabel}>Status:</label>
+                <select 
+                  className={`${styles.statusDropdown} ${styles[task.status]}`}
+                  value={task.status}
+                  onChange={(e) => handleStatusChange(e.target.value as Task['status'])}
+                >
+                  <option value="pending">⏳ PENDING</option>
+                  <option value="in-progress">🔄 IN PROGRESS</option>
+                  <option value="completed">✅ COMPLETED</option>
+                  <option value="cancelled">❌ CANCELLED</option>
+                  <option value="failed">💥 FAILED</option>
+                </select>
+              </div>
+              <div className={styles.priorityDropdownContainer}>
+                <label className={styles.priorityLabel}>Priority:</label>
+                <select 
+                  className={`${styles.priorityDropdown} ${styles[task.priority]}`}
+                  value={task.priority}
+                  onChange={(e) => handlePriorityChange(e.target.value as Task['priority'])}
+                >
+                  <option value="low">🔵 LOW</option>
+                  <option value="medium">🟡 MEDIUM</option>
+                  <option value="high">🔴 HIGH</option>
+                </select>
+              </div>
             </div>
           </div>
 
@@ -138,8 +172,28 @@ const ViewTask: React.FC<ViewTaskProps> = ({ task, onEdit, onDelete, onClose }) 
               )}
             </div>
           )}
+
+          {/* Edit Task Button - Always show at bottom */}
+          <div className={styles.editTaskButtonContainer}>
+            <button 
+              className={`${styles.editTaskButton}`}
+              onClick={handleEditTask}
+              title="Edit this task"
+            >
+              ✏️ Edit Task
+            </button>
+          </div>
         </div>
       </div>
+
+      {/* Edit Task Modal */}
+      {showEditModal && (
+        <EditTask 
+          task={task}
+          onTaskUpdated={handleTaskUpdated}
+          onCancel={handleEditCancel}
+        />
+      )}
     </div>
   );
 };

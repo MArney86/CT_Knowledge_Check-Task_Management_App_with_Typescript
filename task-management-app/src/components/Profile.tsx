@@ -24,10 +24,6 @@ const Profile: React.FC = () => {
                         alt="Profile" 
                         className="w-100 h-100"
                         style={{ objectFit: 'cover' }}
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.src = '../images/no-image.svg';
-                        }}
                       />
                     ) : (
                       <div className="w-100 h-100 d-flex align-items-center justify-content-center win98-panel-inset" style={{ fontSize: '24px' }}>

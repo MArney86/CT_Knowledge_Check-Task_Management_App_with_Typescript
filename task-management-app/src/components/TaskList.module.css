@@ -30,7 +30,6 @@
 }
 
 .taskListLayout {
-  display: flex;
   gap: 8px;
   align-items: flex-start;
 }
@@ -56,4 +55,19 @@
 .actionButton:disabled {
   color: var(--win98-button-shadow) !important;
   cursor: not-allowed !important;
+}
+
+.clearButton {
+  color: #cc0000 !important;
+  margin-top: 8px;
+}
+
+.clearButton:hover:not(:disabled) {
+  color: #ffffff !important;
+  background-color: #cc0000 !important;
+  border-color: #aa0000 !important;
+}
+
+.clearButton:disabled {
+  color: var(--win98-button-shadow) !important;
 }

@@ -54,7 +54,6 @@ export default function DisplayBox() {
                         <div className={styles.taskTitle}>{selectedTask.name}</div>
                         <div className={styles.taskDescription}>{selectedTask.description || 'No description available.'}</div>
                         <div className={styles.taskMeta}>
-                            Task ID: {selectedTask.id}
                             {selectedTask.priority && ` • Priority: ${selectedTask.priority}`}
                             {selectedTask.status && ` • Status: ${selectedTask.status}`}
                         </div>

@@ -1,9 +1,8 @@
 .viewTaskContainer {
   background: var(--win98-bg);
   padding: 0;
-  min-height: auto;
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
 .taskWindow {
@@ -11,7 +10,7 @@
   border: 2px solid;
   border-color: var(--win98-button-highlight) var(--win98-button-shadow) var(--win98-button-shadow) var(--win98-button-highlight);
   width: 100%;
-  height: 100%;
+  height: auto;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -77,6 +76,109 @@
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+  align-items: center;
+}
+
+.statusDropdownContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.statusLabel {
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  color: var(--win98-text);
+}
+
+.statusDropdown {
+  padding: 2px 4px;
+  border: 2px solid;
+  border-color: var(--win98-button-shadow) var(--win98-button-highlight) var(--win98-button-highlight) var(--win98-button-shadow);
+  background: var(--win98-surface);
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  color: var(--win98-text);
+  cursor: pointer;
+  min-width: 120px;
+}
+
+.statusDropdown:focus {
+  outline: 1px dotted var(--win98-text);
+  outline-offset: -2px;
+}
+
+.statusDropdown.pending {
+  background: #ffffcc;
+  color: #666600;
+}
+
+.statusDropdown.in-progress {
+  background: #cceeff;
+  color: #003366;
+}
+
+.statusDropdown.completed {
+  background: #ccffcc;
+  color: #006600;
+}
+
+.statusDropdown.cancelled {
+  background: #ffcccc;
+  color: #660000;
+}
+
+.statusDropdown.failed {
+  background: #ffcccc;
+  color: #990000;
+}
+
+.priorityDropdownContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.priorityLabel {
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  color: var(--win98-text);
+}
+
+.priorityDropdown {
+  padding: 2px 4px;
+  border: 2px solid;
+  border-color: var(--win98-button-shadow) var(--win98-button-highlight) var(--win98-button-highlight) var(--win98-button-shadow);
+  background: var(--win98-surface);
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  color: var(--win98-text);
+  cursor: pointer;
+  min-width: 100px;
+}
+
+.priorityDropdown:focus {
+  outline: 1px dotted var(--win98-text);
+  outline-offset: -2px;
+}
+
+.priorityDropdown.low {
+  background: #e6f3ff;
+  color: #0066cc;
+}
+
+.priorityDropdown.medium {
+  background: #fff9e6;
+  color: #cc6600;
+}
+
+.priorityDropdown.high {
+  background: #ffe6e6;
+  color: #cc0000;
 }
 
 .statusBadge,
@@ -241,4 +343,32 @@
 
 .deleteButton:hover {
   background: #ffaaaa;
+}
+
+.editTaskButtonContainer {
+  border-top: 1px solid var(--win98-button-shadow);
+  padding: 12px 16px;
+  text-align: center;
+  background: var(--win98-surface);
+}
+
+.editTaskButton {
+  min-width: 120px;
+  padding: 6px 16px;
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  background: var(--win98-surface);
+  border: 2px solid;
+  border-color: var(--win98-button-highlight) var(--win98-button-shadow) var(--win98-button-shadow) var(--win98-button-highlight);
+  color: var(--win98-text);
+  cursor: pointer;
+}
+
+.editTaskButton:hover {
+  background: var(--win98-surface);
+}
+
+.editTaskButton:active {
+  border-color: var(--win98-button-shadow) var(--win98-button-highlight) var(--win98-button-highlight) var(--win98-button-shadow);
 }
