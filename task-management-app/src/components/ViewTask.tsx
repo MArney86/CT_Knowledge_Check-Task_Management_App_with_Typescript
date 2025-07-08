@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import type { Task } from './Task';
 import { useUserContext } from '../contexts/UserContext';
 import EditTask from './EditTask';
-import styles from './ViewTask.module.css';
 
 interface ViewTaskProps {
   task: Task;
@@ -63,25 +62,25 @@ const ViewTask: React.FC<ViewTaskProps> = ({ task, onEdit, onDelete, onClose }) 
   };
 
   return (
-    <div className={styles.viewTaskContainer}>
-      <div className={styles.taskWindow}>
-        <div className={styles.titleBar}>
+    <div className="viewTaskContainer">
+      <div className="taskWindow">
+        <div className="titleBar">
           <span>📋 Task Details - ID: {task.id}</span>
           {onClose && (
-            <button className={styles.closeButton} onClick={onClose}>
+            <button className="closeButton" onClick={onClose}>
               ✕
             </button>
           )}
         </div>
         
-        <div className={styles.windowContent}>
-          <div className={styles.taskHeader}>
-            <h2 className={styles.taskTitle}>{task.name}</h2>
-            <div className={styles.taskMeta}>
-              <div className={styles.statusDropdownContainer}>
-                <label className={styles.statusLabel}>Status:</label>
+        <div className="windowContent padding">
+          <div className="taskHeader">
+            <h2 className="taskTitle">{task.name}</h2>
+            <div className="taskMeta">
+              <div className="statusDropdownContainer">
+                <label className="statusLabel">Status:</label>
                 <select 
-                  className={`${styles.statusDropdown} ${styles[task.status]}`}
+                  className={`statusDropdown ${task.status}`}
                   value={task.status}
                   onChange={(e) => handleStatusChange(e.target.value as Task['status'])}
                 >
@@ -92,10 +91,10 @@ const ViewTask: React.FC<ViewTaskProps> = ({ task, onEdit, onDelete, onClose }) 
                   <option value="failed">💥 FAILED</option>
                 </select>
               </div>
-              <div className={styles.priorityDropdownContainer}>
-                <label className={styles.priorityLabel}>Priority:</label>
+              <div className="priorityDropdownContainer">
+                <label className="priorityLabel">Priority:</label>
                 <select 
-                  className={`${styles.priorityDropdown} ${styles[task.priority]}`}
+                  className={`priorityDropdown ${task.priority}`}
                   value={task.priority}
                   onChange={(e) => handlePriorityChange(e.target.value as Task['priority'])}
                 >
@@ -107,27 +106,27 @@ const ViewTask: React.FC<ViewTaskProps> = ({ task, onEdit, onDelete, onClose }) 
             </div>
           </div>
 
-          <div className={styles.taskDetails}>
-            <div className={styles.detailSection}>
-              <h3 className={styles.sectionTitle}>Description</h3>
-              <div className={styles.descriptionBox}>
+          <div className="taskDetails">
+            <div className="detailSection">
+              <h3 className="sectionTitle">Description</h3>
+              <div className="descriptionBox">
                 {task.description}
               </div>
             </div>
 
             <div className="row">
               <div className="col-md-6">
-                <div className={styles.detailSection}>
-                  <h3 className={styles.sectionTitle}>Created</h3>
-                  <div className={styles.dateInfo}>
+                <div className="detailSection">
+                  <h3 className="sectionTitle">Created</h3>
+                  <div className="dateInfo">
                     📅 {formatDate(task.createdAt)}
                   </div>
                 </div>
               </div>
               <div className="col-md-6">
-                <div className={styles.detailSection}>
-                  <h3 className={styles.sectionTitle}>Last Updated</h3>
-                  <div className={styles.dateInfo}>
+                <div className="detailSection">
+                  <h3 className="sectionTitle">Last Updated</h3>
+                  <div className="dateInfo">
                     🔄 {formatDate(task.updatedAt)}
                   </div>
                 </div>
@@ -135,22 +134,22 @@ const ViewTask: React.FC<ViewTaskProps> = ({ task, onEdit, onDelete, onClose }) 
             </div>
 
             {task.dueDate && (
-              <div className={styles.detailSection}>
-                <h3 className={styles.sectionTitle}>Due Date</h3>
-                <div className={styles.dueDateInfo}>
-                  <span className={styles.dateInfo}>
+              <div className="detailSection">
+                <h3 className="sectionTitle">Due Date</h3>
+                <div className="dueDateInfo">
+                  <span className="dateInfo">
                     ⏰ {formatDate(task.dueDate)}
                   </span>
                   {(() => {
                     const daysUntil = getDaysUntilDue(task.dueDate);
                     if (daysUntil < 0) {
-                      return <span className={styles.overdue}>({Math.abs(daysUntil)} days overdue)</span>;
+                      return <span className="overdue">({Math.abs(daysUntil)} days overdue)</span>;
                     } else if (daysUntil === 0) {
-                      return <span className={styles.dueToday}>(Due today!)</span>;
+                      return <span className="dueToday">(Due today!)</span>;
                     } else if (daysUntil <= 3) {
-                      return <span className={styles.dueSoon}>({daysUntil} days remaining)</span>;
+                      return <span className="dueSoon">({daysUntil} days remaining)</span>;
                     } else {
-                      return <span className={styles.dueNormal}>({daysUntil} days remaining)</span>;
+                      return <span className="dueNormal">({daysUntil} days remaining)</span>;
                     }
                   })()}
                 </div>
@@ -159,14 +158,14 @@ const ViewTask: React.FC<ViewTaskProps> = ({ task, onEdit, onDelete, onClose }) 
           </div>
 
           {(onEdit || onDelete) && (
-            <div className={styles.actionButtons}>
+            <div className="actionButtons">
               {onEdit && (
-                <button className={`${styles.actionButton} ${styles.editButton}`} onClick={onEdit}>
+                <button className="actionButton editButton" onClick={onEdit}>
                   ✏️ Edit Task
                 </button>
               )}
               {onDelete && (
-                <button className={`${styles.actionButton} ${styles.deleteButton}`} onClick={onDelete}>
+                <button className="actionButton deleteButton" onClick={onDelete}>
                   🗑️ Delete Task
                 </button>
               )}
@@ -174,9 +173,9 @@ const ViewTask: React.FC<ViewTaskProps> = ({ task, onEdit, onDelete, onClose }) 
           )}
 
           {/* Edit Task Button - Always show at bottom */}
-          <div className={styles.editTaskButtonContainer}>
+          <div className="editTaskButtonContainer">
             <button 
-              className={`${styles.editTaskButton}`}
+              className="editTaskButton"
               onClick={handleEditTask}
               title="Edit this task"
             >

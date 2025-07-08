@@ -2,7 +2,6 @@ import { useSelectionContext } from "../contexts/SelectionContext";
 import { useUserContext } from "../contexts/UserContext";
 import { useState, useEffect } from "react";
 import ViewTask from "./ViewTask";
-import styles from "./DisplayBox.module.css";
 
 export default function DisplayBox() {
     const { user } = useUserContext();
@@ -40,25 +39,25 @@ export default function DisplayBox() {
     };
 
     return (
-        <div className={`${styles.displayBox} ${showFullView ? styles.fullView : styles.preview}`}>
+        <div className={`displayBox ${showFullView ? 'fullView' : 'preview'}`}>
             {selectedTask ? (
                 showFullView ? (
-                    <div className={styles.viewTaskWrapper}>
+                    <div className="viewTaskWrapper">
                         <ViewTask 
                             task={selectedTask}
                             onClose={handleCloseView}
                         />
                     </div>
                 ) : (
-                    <div className={styles.taskDetails}>
-                        <div className={styles.taskTitle}>{selectedTask.name}</div>
-                        <div className={styles.taskDescription}>{selectedTask.description || 'No description available.'}</div>
-                        <div className={styles.taskMeta}>
+                    <div className="taskDetails">
+                        <div className="taskTitle">{selectedTask.name}</div>
+                        <div className="taskDescription">{selectedTask.description || 'No description available.'}</div>
+                        <div className="taskMeta">
                             {selectedTask.priority && ` • Priority: ${selectedTask.priority}`}
                             {selectedTask.status && ` • Status: ${selectedTask.status}`}
                         </div>
                         <button 
-                            className={`btn ${styles.viewButton}`}
+                            className="btn viewButton"
                             onClick={() => setShowFullView(true)}
                         >
                             View Full Details
@@ -66,7 +65,7 @@ export default function DisplayBox() {
                     </div>
                 )
             ) : (
-                <div className={styles.placeholder}>
+                <div className="placeholder">
                     Please select a task to view details.
                 </div>
             )}

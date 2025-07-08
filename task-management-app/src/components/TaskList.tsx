@@ -6,7 +6,6 @@ import ListBox from "./ListBox";
 import NewTask from "./NewTask";
 import DeleteTask from "./DeleteTask";
 import ClearTasks from "./ClearTasks";
-import styles from "./TaskList.module.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -83,25 +82,25 @@ const TaskList: React.FC = () => {
     };
 
   return (
-    <div className={styles.taskList}>
-        <div className={styles.content}>
-            <h2 className={styles.userTitle}>{user.name}'s Tasks</h2>
-            <Container fluid className={styles.taskListLayout}>
+    <div className="taskList">
+        <div className="content">
+            <h2 className="userTitle">{user.name}'s Tasks</h2>
+            <Container fluid className="taskListLayout">
                 <Row >
-                    <Col md={10}className={styles.listBoxSection}>
+                    <Col md={10} className="listBoxSection">
                         <ListBox items={user.tasks.tasks} placeholder="Select a task" />
                     </Col>
-                    <Col className={`${styles.buttonSection} d-flex flex-column align-items-center justify-content-between`}>
+                    <Col className="buttonSection d-flex flex-column align-items-center justify-content-between">
                         <div className={"d-flex flex-column m-0 p-0"}>
                             <button 
-                            className={`btn ${styles.actionButton}`}
+                            className="btn actionButton"
                             onClick={handleAddTask}
                             title="Add New Task"
                             >
                                 Add
                             </button>
                             <button 
-                            className={`btn ${styles.actionButton}`}
+                            className="btn actionButton"
                             onClick={handleViewTask}
                             disabled={!selectedTask}
                             title="View Selected Task"
@@ -109,7 +108,7 @@ const TaskList: React.FC = () => {
                                 View
                             </button>
                             <button 
-                            className={`btn ${styles.actionButton}`}
+                            className="btn actionButton"
                             onClick={handleDeleteTask}
                             disabled={!selectedTask}
                             title="Delete Selected Task"
@@ -119,7 +118,7 @@ const TaskList: React.FC = () => {
                         </div>
                     
                         <button 
-                        className={`btn ${styles.actionButton} ${styles.clearButton}`}
+                        className="btn actionButton clearButton"
                         onClick={handleClearTasks}
                         disabled={user.tasks.tasks.length === 0}
                         title="Clear All Tasks"

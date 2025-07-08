@@ -287,3 +287,1148 @@ select:focus {
 html {
   scroll-behavior: auto;
 }
+
+/* ====== COMPONENT STYLES (formerly in CSS modules) ====== */
+
+/* NavigationBar Component */
+.navbar {
+  background-color: var(--win98-menu-bg);
+  border: 2px outset var(--win98-menu-bg);
+  color: var(--win98-menu-text);
+  font-size: 11px;
+  padding: 2px;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 2px;
+}
+
+.navItem {
+  margin: 0;
+}
+
+.navLink {
+  color: var(--win98-menu-text);
+  font-size: 11px;
+  padding: 2px 8px;
+  cursor: default;
+  text-decoration: none;
+  display: block;
+  border: 1px solid transparent;
+}
+
+.navLink:hover {
+  background-color: var(--win98-highlight);
+  color: var(--win98-highlight-text);
+  border: 1px solid var(--win98-button-shadow);
+}
+
+.navLink:active {
+  border: 1px inset var(--win98-surface);
+}
+
+.authButtons {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+/* HomePage Component */
+.homePage {
+  padding: 16px;
+  min-height: calc(100vh - 60px);
+  background-color: var(--win98-bg);
+}
+
+.welcomeWindow {
+  background-color: var(--win98-surface);
+  border: 2px outset var(--win98-surface);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.titleBar {
+  background: linear-gradient(90deg, var(--win98-active-title) 0%, #1084d0 100%);
+  color: var(--win98-active-title-text);
+  padding: 2px 4px;
+  font-weight: bold;
+  font-size: 11px;
+  border-bottom: 1px solid var(--win98-button-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.windowContent {
+  background-color: var(--win98-surface);
+}
+
+.windowContent.padding {
+  padding: 16px;
+}
+
+.windowContent.flex {
+  display: flex;
+  height: calc(100% - 20px);
+}
+
+.welcomeTitle {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 0 12px 0;
+  color: var(--win98-text);
+}
+
+.description {
+  font-size: 11px;
+  color: var(--win98-text);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.authSection {
+  border: 2px inset var(--win98-surface);
+  padding: 12px;
+  background-color: #ffffff;
+  margin-top: 16px;
+}
+
+.authTitle {
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--win98-text);
+  margin: 0 0 8px 0;
+}
+
+.authButtons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* TasksLayout Component */
+.tasksLayout {
+  padding: 8px;
+  background-color: var(--win98-bg);
+  min-height: calc(100vh - 60px);
+}
+
+.mainWindow {
+  background-color: var(--win98-surface);
+  border: 2px outset var(--win98-surface);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  height: calc(100vh - 100px);
+}
+
+
+
+.leftPanel {
+  flex: 1;
+  border-right: 1px solid var(--win98-button-shadow);
+  padding: 8px;
+  background-color: var(--win98-surface);
+}
+
+.rightPanel {
+  flex: 1;
+  padding: 8px;
+  background-color: var(--win98-surface);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.sectionTitle {
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--win98-text);
+  margin: 0 0 8px 0;
+  padding: 2px 4px;
+  background-color: var(--win98-surface);
+  border: 1px outset var(--win98-surface);
+  flex-shrink: 0;
+}
+
+/* TaskList Component */
+.taskList {
+  background-color: var(--win98-surface);
+  border: 2px outset var(--win98-surface);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin: 8px;
+}
+
+.content {
+  padding: 8px;
+  background-color: var(--win98-surface);
+}
+
+.userTitle {
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--win98-text);
+  margin: 0 0 8px 0;
+}
+
+.taskListLayout {
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.listBoxSection {
+  flex: 1;
+}
+
+.buttonSection {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 80px;
+}
+
+.actionButton {
+  min-width: 75px !important;
+  padding: 4px 8px !important;
+  font-size: 11px !important;
+  white-space: nowrap;
+}
+
+.actionButton:disabled {
+  color: var(--win98-button-shadow) !important;
+  cursor: not-allowed !important;
+}
+
+.clearButton {
+  color: #cc0000 !important;
+  margin-top: 8px;
+}
+
+.clearButton:hover:not(:disabled) {
+  color: #ffffff !important;
+  background-color: #cc0000 !important;
+  border-color: #aa0000 !important;
+}
+
+.clearButton:disabled {
+  color: var(--win98-button-shadow) !important;
+}
+
+/* ListBox Component */
+.listBoxContainer {
+  margin: 4px 0;
+}
+
+.listBox {
+  border: 2px inset var(--win98-surface);
+  background-color: #ffffff;
+  overflow-y: auto;
+  font-family: "MS Sans Serif", sans-serif;
+  font-size: 11px;
+  color: var(--win98-text);
+  cursor: default;
+  user-select: none;
+}
+
+.listItem {
+  padding: 1px 4px;
+  line-height: 1.2;
+  cursor: default;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.listItem:hover {
+  background-color: var(--win98-highlight);
+  color: var(--win98-highlight-text);
+}
+
+.listItem.selected {
+  background-color: var(--win98-highlight);
+  color: var(--win98-highlight-text);
+}
+
+.loadingItem,
+.emptyItem {
+  padding: 8px 4px;
+  color: var(--win98-button-shadow);
+  font-style: italic;
+  text-align: center;
+}
+
+/* DisplayBox Component */
+.displayBox {
+  background-color: #ffffff;
+  border: 2px inset var(--win98-surface);
+  padding: 8px;
+  font-size: 11px;
+  color: var(--win98-text);
+  overflow-y: auto;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  flex: 0;
+  min-height: 0;
+}
+
+.displayBox.preview {
+  max-height: 250px;
+  flex: 0 0 auto;
+}
+
+.displayBox.fullView {
+  flex: 1;
+  min-height: 300px;
+}
+
+.placeholder {
+  color: var(--win98-button-shadow);
+  font-style: italic;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.taskDetails {
+  font-size: 11px;
+  color: var(--win98-text);
+}
+
+.taskTitle {
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.taskDescription {
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.taskMeta {
+  font-size: 10px;
+  color: var(--win98-button-shadow);
+  border-top: 1px solid var(--win98-button-shadow);
+  padding-top: 4px;
+  margin-top: 8px;
+}
+
+.viewButton {
+  margin-top: 8px !important;
+  font-size: 11px !important;
+  padding: 2px 8px !important;
+}
+
+.displayBox.fullView .viewTaskContainer {
+  height: auto;
+}
+
+.displayBox.fullView .taskWindow {
+  height: auto;
+  min-height: 350px;
+}
+
+.viewTaskWrapper {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Profile Component */
+.profileContainer {
+  max-width: 400px;
+  margin: 8px auto;
+  padding: 8px;
+}
+
+.profileCard {
+  background-color: var(--win98-surface);
+  border: 2px outset var(--win98-surface);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.profileHeader {
+  background: linear-gradient(90deg, var(--win98-active-title) 0%, #1084d0 100%);
+  color: var(--win98-active-title-text);
+  padding: 2px 4px;
+  font-weight: bold;
+  font-size: 11px;
+  border-bottom: 1px solid var(--win98-button-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profileHeader h2 {
+  margin: 0;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.editBtn {
+  background-color: var(--win98-button-face);
+  border: 2px outset var(--win98-button-face);
+  color: var(--win98-text);
+  padding: 1px 4px;
+  font-size: 11px;
+  cursor: default;
+  transition: none;
+}
+
+.editBtn:hover {
+  background-color: var(--win98-button-face);
+}
+
+.editBtn:active {
+  border: 2px inset var(--win98-button-face);
+  padding: 2px 3px 0px 5px;
+}
+
+.profileContent {
+  padding: 8px;
+  background-color: var(--win98-surface);
+}
+
+.profilePictureSection {
+  text-align: center;
+  margin-bottom: 12px;
+  padding: 8px;
+  border: 2px inset var(--win98-surface);
+  background-color: #ffffff;
+}
+
+.profilePicture {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 8px;
+  border: 2px inset var(--win98-surface);
+  background-color: #ffffff;
+}
+
+.profilePicture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profilePlaceholder {
+  width: 100%;
+  height: 100%;
+  background-color: var(--win98-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  border: 1px inset var(--win98-surface);
+}
+
+.pictureInput {
+  margin-top: 8px;
+}
+
+.pictureInput label {
+  display: block;
+  margin-bottom: 2px;
+  font-weight: normal;
+  font-size: 11px;
+}
+
+.pictureInput input {
+  width: 100%;
+  border: 2px inset var(--win98-surface);
+  background-color: #ffffff;
+  color: var(--win98-text);
+  font-size: 11px;
+  padding: 2px 4px;
+}
+
+.profileInfo {
+  margin-bottom: 8px;
+}
+
+.infoField {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  border: 1px inset var(--win98-surface);
+  background-color: #ffffff;
+}
+
+.infoField label {
+  font-weight: normal;
+  color: var(--win98-text);
+  font-size: 11px;
+  width: 60px;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.infoValue {
+  color: var(--win98-text);
+  font-size: 11px;
+  padding: 0;
+  flex-grow: 1;
+  background: transparent;
+  border: none;
+}
+
+.infoField input {
+  border: none;
+  background: transparent;
+  color: var(--win98-text);
+  font-size: 11px;
+  padding: 0;
+  flex-grow: 1;
+  outline: none;
+}
+
+.infoField input:focus {
+  background-color: var(--win98-highlight);
+  color: var(--win98-highlight-text);
+}
+
+.profileActions {
+  display: flex;
+  gap: 4px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--win98-button-shadow);
+  justify-content: center;
+}
+
+.saveBtn, .cancelBtn {
+  min-width: 64px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: normal;
+  cursor: default;
+  transition: none;
+  border: 2px outset var(--win98-button-face);
+  background-color: var(--win98-button-face);
+  color: var(--win98-text);
+}
+
+.saveBtn:hover:not(:disabled),
+.cancelBtn:hover {
+  background-color: var(--win98-button-face);
+}
+
+.saveBtn:active,
+.cancelBtn:active {
+  border: 2px inset var(--win98-button-face);
+  padding: 3px 7px 1px 9px;
+}
+
+.saveBtn:disabled {
+  color: var(--win98-button-shadow);
+  cursor: not-allowed;
+}
+
+/* ViewTask Component */
+.viewTaskContainer {
+  background: var(--win98-bg);
+  padding: 0;
+  width: 100%;
+  height: auto;
+}
+
+.taskWindow {
+  background: var(--win98-surface);
+  border: 2px solid;
+  border-color: var(--win98-button-highlight) var(--win98-button-shadow) var(--win98-button-shadow) var(--win98-button-highlight);
+  width: 100%;
+  height: auto;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.closeButton {
+  background: var(--win98-surface);
+  border: 1px solid var(--win98-button-shadow);
+  color: var(--win98-text);
+  font-family: 'MS Sans Serif', sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  width: 16px;
+  height: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.closeButton:hover {
+  background: var(--win98-surface);
+}
+
+.closeButton:active {
+  border: 1px solid var(--win98-button-highlight);
+}
+
+.taskHeader {
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--win98-button-shadow);
+}
+
+.statusDropdownContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.statusLabel {
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  color: var(--win98-text);
+}
+
+.statusDropdown {
+  padding: 2px 4px;
+  border: 2px solid;
+  border-color: var(--win98-button-shadow) var(--win98-button-highlight) var(--win98-button-highlight) var(--win98-button-shadow);
+  background: var(--win98-surface);
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  color: var(--win98-text);
+  cursor: pointer;
+  min-width: 120px;
+}
+
+.statusDropdown:focus {
+  outline: 1px dotted var(--win98-text);
+  outline-offset: -2px;
+}
+
+.statusDropdown.pending {
+  background: #ffffcc;
+  color: #666600;
+}
+
+.statusDropdown.in-progress {
+  background: #cceeff;
+  color: #003366;
+}
+
+.statusDropdown.completed {
+  background: #ccffcc;
+  color: #006600;
+}
+
+.statusDropdown.cancelled {
+  background: #ffcccc;
+  color: #660000;
+}
+
+.statusDropdown.failed {
+  background: #ffcccc;
+  color: #990000;
+}
+
+.priorityDropdownContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.priorityLabel {
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  color: var(--win98-text);
+}
+
+.priorityDropdown {
+  padding: 2px 4px;
+  border: 2px solid;
+  border-color: var(--win98-button-shadow) var(--win98-button-highlight) var(--win98-button-highlight) var(--win98-button-shadow);
+  background: var(--win98-surface);
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  color: var(--win98-text);
+  cursor: pointer;
+  min-width: 100px;
+}
+
+.priorityDropdown:focus {
+  outline: 1px dotted var(--win98-text);
+  outline-offset: -2px;
+}
+
+.priorityDropdown.low {
+  background: #e6f3ff;
+  color: #0066cc;
+}
+
+.priorityDropdown.medium {
+  background: #fff9e6;
+  color: #cc6600;
+}
+
+.priorityDropdown.high {
+  background: #ffe6e6;
+  color: #cc0000;
+}
+
+.statusBadge,
+.priorityBadge {
+  padding: 2px 8px;
+  border: 1px solid var(--win98-button-shadow);
+  background: var(--win98-surface);
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  border-radius: 0;
+}
+
+.statusBadge.pending {
+  background: #ffffcc;
+  color: #666600;
+}
+
+.statusBadge.in-progress {
+  background: #cceeff;
+  color: #003366;
+}
+
+.statusBadge.completed {
+  background: #ccffcc;
+  color: #006600;
+}
+
+.statusBadge.cancelled {
+  background: #ffcccc;
+  color: #660000;
+}
+
+.statusBadge.failed {
+  background: #ffcccc;
+  color: #990000;
+}
+
+.priorityBadge.low {
+  background: #e6f3ff;
+  color: #0066cc;
+}
+
+.priorityBadge.medium {
+  background: #fff5e6;
+  color: #cc6600;
+}
+
+.priorityBadge.high {
+  background: #ffe6e6;
+  color: #cc0000;
+}
+
+.detailSection {
+  margin-bottom: 16px;
+}
+
+.descriptionBox {
+  background: var(--win98-bg);
+  border: 2px solid;
+  border-color: var(--win98-button-shadow) var(--win98-button-highlight) var(--win98-button-highlight) var(--win98-button-shadow);
+  padding: 8px;
+  color: var(--win98-text);
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 11px;
+  min-height: 60px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.dateInfo {
+  color: var(--win98-text);
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 11px;
+  background: var(--win98-surface);
+  border: 1px solid var(--win98-button-shadow);
+  padding: 4px 8px;
+  display: inline-block;
+}
+
+.dueDateInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.overdue {
+  color: #cc0000;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.dueToday {
+  color: #ff6600;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.dueSoon {
+  color: #cc6600;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.dueNormal {
+  color: var(--win98-text);
+  font-size: 10px;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  padding-top: 16px;
+  border-top: 1px solid var(--win98-button-shadow);
+}
+
+.editButton {
+  background: #cceeff;
+  color: #003366;
+}
+
+.deleteButton {
+  background: #ffcccc;
+  color: #660000;
+}
+
+.deleteButton:hover {
+  background: #ffaaaa;
+}
+
+.editTaskButtonContainer {
+  border-top: 1px solid var(--win98-button-shadow);
+  padding: 12px 16px;
+  text-align: center;
+  background: var(--win98-surface);
+}
+
+.editTaskButton {
+  min-width: 120px;
+  padding: 6px 16px;
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  background: var(--win98-surface);
+  border: 2px solid;
+  border-color: var(--win98-button-highlight) var(--win98-button-shadow) var(--win98-button-shadow) var(--win98-button-highlight);
+  color: var(--win98-text);
+  cursor: pointer;
+}
+
+.editTaskButton:hover {
+  background: var(--win98-surface);
+}
+
+.editTaskButton:active {
+  border-color: var(--win98-button-shadow) var(--win98-button-highlight) var(--win98-button-highlight) var(--win98-button-shadow);
+}
+
+/* TaskForm Component */
+.taskForm {
+  background: var(--win98-surface);
+  border: 2px solid;
+  border-color: var(--win98-button-highlight) var(--win98-button-shadow) var(--win98-button-shadow) var(--win98-button-highlight);
+  padding: 12px;
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 11px;
+}
+
+.formTitle {
+  color: var(--win98-text);
+  font-weight: bold;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--win98-button-shadow);
+  padding-bottom: 4px;
+}
+
+.formGroup {
+  margin-bottom: 12px;
+}
+
+.formLabel {
+  display: block;
+  color: var(--win98-text);
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.formControl {
+  background: var(--win98-bg);
+  border: 2px solid;
+  border-color: var(--win98-button-shadow) var(--win98-button-highlight) var(--win98-button-highlight) var(--win98-button-shadow);
+  color: var(--win98-text);
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 11px;
+  padding: 2px 4px;
+  width: 100%;
+}
+
+.formControl:focus {
+  outline: 1px dotted var(--win98-text);
+  outline-offset: -1px;
+}
+
+.formSelect {
+  background: var(--win98-surface);
+  border: 2px solid;
+  border-color: var(--win98-button-shadow) var(--win98-button-highlight) var(--win98-button-highlight) var(--win98-button-shadow);
+  color: var(--win98-text);
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 11px;
+  padding: 2px;
+  width: 100%;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--win98-button-shadow);
+}
+
+.textArea {
+  resize: none;
+  height: 60px;
+}
+
+.primaryButton {
+  font-weight: bold;
+}
+
+.cancelButton {
+  background: var(--win98-surface);
+}
+
+.priorityHigh {
+  color: #c00000;
+  font-weight: bold;
+}
+
+.priorityMedium {
+  color: #ff8000;
+}
+
+.priorityLow {
+  color: var(--win98-text);
+}
+
+/* NewTask Component */
+.newTaskContainer {
+  background: var(--win98-bg);
+  padding: 16px;
+  min-height: 100vh;
+}
+
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  background: var(--win98-bg);
+}
+
+.loadingBox,
+.loadingDialog {
+  background: var(--win98-surface);
+  border: 2px solid;
+  border-color: var(--win98-button-highlight) var(--win98-button-shadow) var(--win98-button-shadow) var(--win98-button-highlight);
+  padding: 20px;
+  text-align: center;
+  min-width: 250px;
+}
+
+.loadingTitle {
+  color: var(--win98-text);
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.progressBar {
+  background: var(--win98-bg);
+  border: 2px solid;
+  border-color: var(--win98-button-shadow) var(--win98-button-highlight) var(--win98-button-highlight) var(--win98-button-shadow);
+  height: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progressFill {
+  background: linear-gradient(90deg, #0000ff 25%, transparent 25%, transparent 50%, #0000ff 50%, #0000ff 75%, transparent 75%);
+  background-size: 8px 8px;
+  height: 100%;
+  width: 100%;
+  animation: progress 1s linear infinite;
+}
+
+/* EditTask Component */
+.editTaskContainer {
+  background: var(--win98-bg);
+  padding: 16px;
+}
+
+.editHeader {
+  background: var(--win98-surface);
+  border: 2px solid;
+  border-color: var(--win98-button-highlight) var(--win98-button-shadow) var(--win98-button-shadow) var(--win98-button-highlight);
+  padding: 8px 12px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.editIcon {
+  font-size: 14px;
+}
+
+.editTitle {
+  color: var(--win98-text);
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.deleteDialog,
+.clearDialog {
+  background: var(--win98-surface);
+  border: 2px solid;
+  border-color: var(--win98-button-highlight) var(--win98-button-shadow) var(--win98-button-shadow) var(--win98-button-highlight);
+  width: 400px;
+  max-width: 90vw;
+}
+
+.dialogContent {
+  padding: 16px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.warningIcon {
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.warningMessage {
+  flex: 1;
+}
+
+.warningTitle {
+  color: var(--win98-text);
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0 0 8px 0;
+}
+
+.warningText {
+  color: var(--win98-text);
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 11px;
+  margin: 0 0 8px 0;
+}
+
+.taskInfo {
+  background: var(--win98-bg);
+  border: 2px solid;
+  border-color: var(--win98-button-shadow) var(--win98-button-highlight) var(--win98-button-highlight) var(--win98-button-shadow);
+  padding: 8px;
+  margin: 8px 0;
+  color: var(--win98-text);
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 11px;
+  word-wrap: break-word;
+}
+
+.warningSubtext {
+  color: var(--win98-text);
+  font-family: "MS Sans Serif", Tahoma, sans-serif;
+  font-size: 10px;
+  margin: 8px 0 0 0;
+  font-style: italic;
+}
+
+/* ClearTasks Component */
+.clearButton {
+  background: #ffcccc;
+  color: #cc0000;
+  font-weight: bold;
+}
+
+.clearButton:hover {
+  background: #ffaaaa;
+}
+
+.clearTasks .taskInfo {
+  color: #cc0000;
+  font-weight: bold;
+}
+
+.clearTasks .progressFill {
+  background: linear-gradient(90deg, #cc0000 25%, transparent 25%, transparent 50%, #cc0000 50%, #cc0000 75%, transparent 75%);
+}
+
+.deleteTask .progressFill {
+  background: linear-gradient(90deg, #ff0000 25%, transparent 25%, transparent 50%, #ff0000 50%, #ff0000 75%, transparent 75%);
+}
+
+/* Shared progress animation */
+@keyframes progress {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 8px 0;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .profileContainer {
+    margin: 4px;
+    padding: 4px;
+  }
+  
+  .profileContent {
+    padding: 4px;
+  }
+  
+  .profileActions {
+    flex-direction: column;
+  }
+}

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelectionContext } from '../contexts/SelectionContext';
 import type { Selection } from '../contexts/SelectionContext';
-import styles from './ListBox.module.css';
 
 type ListBoxProps = {
   items: any[];
@@ -47,17 +46,17 @@ export default function ListBox({ items=[], defaultSelection=null, height='300px
     };
 
     return (
-        <div className={styles.listBoxContainer}>
-            <div className={styles.listBox} style={{ height }}>
+        <div className="listBoxContainer">
+            <div className="listBox" style={{ height }}>
                 {loading ? (
-                    <div className={styles.loadingItem}>Loading Items...</div>
+                    <div className="loadingItem">Loading Items...</div>
                 ) : items.length === 0 ? (
-                    <div className={styles.emptyItem}>{placeholder}</div>
+                    <div className="emptyItem">{placeholder}</div>
                 ) : (
                     items.map((item, index) => (
                         <div
                             key={item.id}
-                            className={`${styles.listItem} ${index === selectedIndex ? styles.selected : ''}`}
+                            className={`listItem ${index === selectedIndex ? 'selected' : ''}`}
                             onClick={() => handleItemClick(item, index)}
                             onDoubleClick={() => {
                                 // Dispatch view event on double-click

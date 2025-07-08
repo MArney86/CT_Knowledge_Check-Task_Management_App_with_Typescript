@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import TaskForm from './TaskForm';
 import type { Task } from './Task';
-import styles from './EditTask.module.css';
 
 interface EditTaskProps {
   task: Task;
@@ -28,11 +27,11 @@ const EditTask: React.FC<EditTaskProps> = ({ task, onTaskUpdated, onCancel }) =>
 
   if (isSubmitting) {
     return (
-      <div className={styles.loadingContainer}>
-        <div className={styles.loadingBox}>
-          <div className={styles.loadingTitle}>Updating Task...</div>
-          <div className={styles.progressBar}>
-            <div className={styles.progressFill}></div>
+      <div className="loadingContainer">
+        <div className="loadingBox">
+          <div className="loadingTitle">Updating Task...</div>
+          <div className="progressBar">
+            <div className="progressFill"></div>
           </div>
         </div>
       </div>
@@ -40,10 +39,10 @@ const EditTask: React.FC<EditTaskProps> = ({ task, onTaskUpdated, onCancel }) =>
   }
 
   return (
-    <div className={styles.editTaskContainer}>
-      <div className={styles.editHeader}>
-        <span className={styles.editIcon}>✏️</span>
-        <span className={styles.editTitle}>Editing: {task.name}</span>
+    <div className="editTaskContainer">
+      <div className="editHeader">
+        <span className="editIcon">✏️</span>
+        <span className="editTitle">Editing: {task.name}</span>
       </div>
       <TaskForm 
         task={task}

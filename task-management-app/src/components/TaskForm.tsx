@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import type { Task } from './Task';
-import styles from './TaskForm.module.css';
 
 interface TaskFormProps {
   task?: Task;
@@ -76,20 +75,20 @@ const TaskForm: React.FC<TaskFormProps> = ({ task, onSubmit, onCancel, isEdit = 
   };
 
   return (
-    <div className={styles.taskForm}>
-      <div className={styles.formTitle}>
+    <div className="taskForm">
+      <div className="formTitle">
         {isEdit ? '✏️ Edit Task' : '➕ New Task'}
       </div>
       
       <form onSubmit={handleSubmit}>
-        <div className={styles.formGroup}>
-          <label className={styles.formLabel} htmlFor="taskName">
+        <div className="formGroup">
+          <label className="formLabel" htmlFor="taskName">
             Task Name:
           </label>
           <input
             id="taskName"
             type="text"
-            className={`${styles.formControl} ${errors.name ? 'is-invalid' : ''}`}
+            className={`formControl ${errors.name ? 'is-invalid' : ''}`}
             value={formData.name}
             onChange={(e) => handleInputChange('name', e.target.value)}
             placeholder="Enter task name"
@@ -97,13 +96,13 @@ const TaskForm: React.FC<TaskFormProps> = ({ task, onSubmit, onCancel, isEdit = 
           {errors.name && <div className="text-danger">{errors.name}</div>}
         </div>
 
-        <div className={styles.formGroup}>
-          <label className={styles.formLabel} htmlFor="taskDescription">
+        <div className="formGroup">
+          <label className="formLabel" htmlFor="taskDescription">
             Description:
           </label>
           <textarea
             id="taskDescription"
-            className={`${styles.formControl} ${styles.textArea} ${errors.description ? 'is-invalid' : ''}`}
+            className={`formControl textArea ${errors.description ? 'is-invalid' : ''}`}
             value={formData.description}
             onChange={(e) => handleInputChange('description', e.target.value)}
             placeholder="Enter task description"
@@ -113,13 +112,13 @@ const TaskForm: React.FC<TaskFormProps> = ({ task, onSubmit, onCancel, isEdit = 
 
         <div className="row">
           <div className="col-md-6">
-            <div className={styles.formGroup}>
-              <label className={styles.formLabel} htmlFor="taskStatus">
+            <div className="formGroup">
+              <label className="formLabel" htmlFor="taskStatus">
                 Status:
               </label>
               <select
                 id="taskStatus"
-                className={styles.formSelect}
+                className="formSelect"
                 value={formData.status}
                 onChange={(e) => handleInputChange('status', e.target.value)}
               >
@@ -133,49 +132,49 @@ const TaskForm: React.FC<TaskFormProps> = ({ task, onSubmit, onCancel, isEdit = 
           </div>
 
           <div className="col-md-6">
-            <div className={styles.formGroup}>
-              <label className={styles.formLabel} htmlFor="taskPriority">
+            <div className="formGroup">
+              <label className="formLabel" htmlFor="taskPriority">
                 Priority:
               </label>
               <select
                 id="taskPriority"
-                className={styles.formSelect}
+                className="formSelect"
                 value={formData.priority}
                 onChange={(e) => handleInputChange('priority', e.target.value)}
               >
-                <option value="low" className={styles.priorityLow}>🔵 Low</option>
-                <option value="medium" className={styles.priorityMedium}>🟡 Medium</option>
-                <option value="high" className={styles.priorityHigh}>🔴 High</option>
+                <option value="low" className="priorityLow">🔵 Low</option>
+                <option value="medium" className="priorityMedium">🟡 Medium</option>
+                <option value="high" className="priorityHigh">🔴 High</option>
               </select>
             </div>
           </div>
         </div>
 
-        <div className={styles.formGroup}>
-          <label className={styles.formLabel} htmlFor="taskDueDate">
+        <div className="formGroup">
+          <label className="formLabel" htmlFor="taskDueDate">
             Due Date (Optional):
           </label>
           <input
             id="taskDueDate"
             type="date"
-            className={`${styles.formControl} ${errors.dueDate ? 'is-invalid' : ''}`}
+            className={`formControl ${errors.dueDate ? 'is-invalid' : ''}`}
             value={formData.dueDate}
             onChange={(e) => handleInputChange('dueDate', e.target.value)}
           />
           {errors.dueDate && <div className="text-danger">{errors.dueDate}</div>}
         </div>
 
-        <div className={styles.buttonGroup}>
+        <div className="buttonGroup">
           <button 
             type="button" 
-            className={`${styles.actionButton} ${styles.cancelButton}`}
+            className="actionButton cancelButton"
             onClick={onCancel}
           >
             Cancel
           </button>
           <button 
             type="submit" 
-            className={`${styles.actionButton} ${styles.primaryButton}`}
+            className="actionButton primaryButton"
           >
             {isEdit ? 'Update' : 'Create'} Task
           </button>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import TaskForm from './TaskForm';
 import type { Task } from './Task';
-import styles from './NewTask.module.css';
 
 interface NewTaskProps {
   onTaskCreated: (task: Partial<Task>) => void;
@@ -27,11 +26,11 @@ const NewTask: React.FC<NewTaskProps> = ({ onTaskCreated, onCancel }) => {
 
   if (isSubmitting) {
     return (
-      <div className={styles.loadingContainer}>
-        <div className={styles.loadingBox}>
-          <div className={styles.loadingTitle}>Creating Task...</div>
-          <div className={styles.progressBar}>
-            <div className={styles.progressFill}></div>
+      <div className="loadingContainer">
+        <div className="loadingBox">
+          <div className="loadingTitle">Creating Task...</div>
+          <div className="progressBar">
+            <div className="progressFill"></div>
           </div>
         </div>
       </div>
@@ -39,7 +38,7 @@ const NewTask: React.FC<NewTaskProps> = ({ onTaskCreated, onCancel }) => {
   }
 
   return (
-    <div className={styles.newTaskContainer}>
+    <div className="newTaskContainer">
       <TaskForm 
         onSubmit={handleSubmit}
         onCancel={onCancel}

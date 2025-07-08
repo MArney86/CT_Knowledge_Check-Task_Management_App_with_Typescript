@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import type { Task } from './Task';
-import styles from './DeleteTask.module.css';
 
 interface DeleteTaskProps {
   task: Task;
@@ -27,11 +26,11 @@ const DeleteTask: React.FC<DeleteTaskProps> = ({ task, onConfirm, onCancel }) =>
 
   if (isDeleting) {
     return (
-      <div className={styles.overlay}>
-        <div className={styles.loadingDialog}>
-          <div className={styles.loadingTitle}>Deleting Task...</div>
-          <div className={styles.progressBar}>
-            <div className={styles.progressFill}></div>
+      <div className="overlay">
+        <div className="loadingDialog">
+          <div className="loadingTitle">Deleting Task...</div>
+          <div className="progressBar">
+            <div className="progressFill"></div>
           </div>
         </div>
       </div>
@@ -39,40 +38,40 @@ const DeleteTask: React.FC<DeleteTaskProps> = ({ task, onConfirm, onCancel }) =>
   }
 
   return (
-    <div className={styles.overlay}>
-      <div className={styles.deleteDialog}>
-        <div className={styles.titleBar}>
+    <div className="overlay">
+      <div className="deleteDialog">
+        <div className="titleBar">
           <span>⚠️ Confirm Delete</span>
         </div>
         
-        <div className={styles.dialogContent}>
-          <div className={styles.warningIcon}>
+        <div className="dialogContent">
+          <div className="warningIcon">
             🗑️
           </div>
           
-          <div className={styles.warningMessage}>
-            <h3 className={styles.warningTitle}>Delete Task?</h3>
-            <p className={styles.warningText}>
+          <div className="warningMessage">
+            <h3 className="warningTitle">Delete Task?</h3>
+            <p className="warningText">
               Are you sure you want to delete the task:
             </p>
-            <div className={styles.taskInfo}>
+            <div className="taskInfo">
               <strong>"{task.name}"</strong>
             </div>
-            <p className={styles.warningSubtext}>
+            <p className="warningSubtext">
               This action cannot be undone.
             </p>
           </div>
         </div>
 
-        <div className={styles.buttonGroup}>
+        <div className="buttonGroup">
           <button 
-            className={`${styles.actionButton} ${styles.cancelButton}`}
+            className="actionButton cancelButton"
             onClick={onCancel}
           >
             Cancel
           </button>
           <button 
-            className={`${styles.actionButton} ${styles.deleteButton}`}
+            className="actionButton deleteButton"
             onClick={handleConfirm}
           >
             🗑️ Delete

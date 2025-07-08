@@ -8,9 +8,9 @@ type Auth0ProviderWithNavigateProps = {
 
 const Auth0ProviderWithNavigate: React.FC<Auth0ProviderWithNavigateProps> = ({ children, }) => {
   const navigate = useNavigate();
-  const domain = "dev-ljqfbz0sg25d46i2.us.auth0.com"; // replace with your Auth0 domain
-  const clientId = "yaaF7sKw1trBGVhP1XsWSAoUWm10JIDj"; // replace with your Auth0 client ID;
-  const redirectUri = "http://localhost:5173/callback"; // make sure the port matches your server
+  const domain = "YOUR-DOMAIN-HERE"; // replace with your Auth0 domain
+  const clientId = "YOUR-CLIENTID-HERE"; // replace with your Auth0 client ID;
+  const redirectUri = "YOUR-REDIRECT-URI-HERE"; // make sure the port matches your server
 
   const onRedirectCallback = (appState: any) => {
     navigate((appState && appState.returnTo) || window.location.pathname);
