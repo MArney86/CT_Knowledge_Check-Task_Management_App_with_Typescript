@@ -1,10 +1,12 @@
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
 
+//basic navigation bar component
 export default function NavigationBar() {
     return (
         <nav className="navbar">
           <ul className="navList">
+            {/* Navigation links */}
             <li className="navItem">
               <a href="/" className="navLink">Home</a>
             </li>

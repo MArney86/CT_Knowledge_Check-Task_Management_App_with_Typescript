@@ -1,3 +1,4 @@
+// TypeScript interface for a Task object in a task management application
 export interface Task {
     id: number;
     name: string;

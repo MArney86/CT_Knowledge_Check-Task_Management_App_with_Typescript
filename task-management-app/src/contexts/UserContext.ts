@@ -42,7 +42,7 @@ export const UserContextProvider: React.FC<{ children: React.ReactNode }> = ({ c
   // Create a dispatch function that uses the task reducer to update user state
   const dispatchTasksWithUser = (action: TaskActions) => {
     setUser(prevUser => {
-      const newTasks = TaskReducer(prevUser.tasks, action, prevUser.email);
+      const newTasks = TaskReducer(prevUser.tasks, action);
       const updatedUser = {
         ...prevUser,
         tasks: newTasks

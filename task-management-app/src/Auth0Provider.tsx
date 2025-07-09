@@ -2,6 +2,7 @@ import React from "react";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
 
+//Auth0Provider wrapper to handle navigation after login
 type Auth0ProviderWithNavigateProps = {
   children: any;
 };
@@ -12,6 +13,7 @@ const Auth0ProviderWithNavigate: React.FC<Auth0ProviderWithNavigateProps> = ({ c
   const clientId = "YOUR-CLIENTID-HERE"; // replace with your Auth0 client ID;
   const redirectUri = "YOUR-REDIRECT-URI-HERE"; // make sure the port matches your server
 
+  //function to handle redirect after login
   const onRedirectCallback = (appState: any) => {
     navigate((appState && appState.returnTo) || window.location.pathname);
   };

@@ -24,7 +24,7 @@ function decodeBase64(str: string): string {
 }
 
 /* save encrypted tasks to localStorage */
-export function saveTasksToStorage(tasks: Task[], userId: string): void {
+export function saveTasksToStorage(tasks: Task[], userId: number): void {
   try {
     const data = {
       tasks,
@@ -33,7 +33,7 @@ export function saveTasksToStorage(tasks: Task[], userId: string): void {
     };
     
     const jsonString = JSON.stringify(data);
-    const encrypted = xorEncrypt(jsonString, userId);
+    const encrypted = xorEncrypt(jsonString, userId.toString());
     const encoded = encodeBase64(encrypted);
     
     localStorage.setItem(`tasks_${userId}`, encoded);
@@ -44,7 +44,7 @@ export function saveTasksToStorage(tasks: Task[], userId: string): void {
 }
 
 /* load and decrypt tasks from localStorage */
-export function loadTasksFromStorage(userId: string): Task[] | null {
+export function loadTasksFromStorage(userId: number): Task[] | null {
   try {
     const encoded = localStorage.getItem(`tasks_${userId}`);
     if (!encoded) {
@@ -53,7 +53,7 @@ export function loadTasksFromStorage(userId: string): Task[] | null {
     }
     
     const encrypted = decodeBase64(encoded);
-    const decrypted = xorEncrypt(encrypted, userId); // XOR is symmetric
+    const decrypted = xorEncrypt(encrypted, userId.toString()); // XOR is symmetric
     const data = JSON.parse(decrypted);
     
     // verify the user_id matches
@@ -79,7 +79,7 @@ export function loadTasksFromStorage(userId: string): Task[] | null {
 }
 
 /* clear tasks from localStorage for a specific user */
-export function clearTasksFromStorage(userId: string): void {
+export function clearTasksFromStorage(userId: number): void {
   try {
     localStorage.removeItem(`tasks_${userId}`);
     console.log('Tasks cleared from localStorage for user:', userId);

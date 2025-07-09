@@ -1,19 +1,23 @@
 //LogoutButton.tsx
 import { useAuth0 } from "@auth0/auth0-react";
 
+//logout button component
 const LogoutButton: React.FC = () => {
-  const { logout, isAuthenticated } = useAuth0();
+    //destructure logout and isAuthenticated from useAuth0 hook
+    const { logout, isAuthenticated } = useAuth0();
 
-  const handleLogout = () => {
-    logout({
-      logoutParams: {
-        returnTo: window.location.origin,
-      },
-    });
-  };
+    //function to handle logout button click
+    const handleLogout = () => {
+        logout({
+        logoutParams: {
+            returnTo: window.location.origin,
+        },
+        });
+    };
 
-  if(isAuthenticated) return (<button onClick={handleLogout} className="btn">🚪 Log Out</button>)
-  return null;
+    //if the user is authenticated, show the logout button
+    if(isAuthenticated) return (<button onClick={handleLogout} className="btn">🚪 Log Out</button>)
+    return null;
 }
 
 export default LogoutButton;

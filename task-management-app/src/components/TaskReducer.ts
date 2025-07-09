@@ -2,7 +2,7 @@ import type { TaskActions } from './TaskActions';
 import type { TaskState } from './TaskState';
 import { saveTasksToStorage } from '../utils/taskStorage';
 
-const TaskReducer = (state: TaskState, action: TaskActions, userId?: string): TaskState => {
+const TaskReducer = (state: TaskState, action: TaskActions, userId?: number): TaskState => {
     let newState: TaskState = {tasks: []};
     
     switch (action.type) {

@@ -1,3 +1,4 @@
+// Actions for managing tasks in a task management application
 import type { Task } from './Task';
 
 export type TaskActions = 

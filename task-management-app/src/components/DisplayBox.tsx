@@ -40,6 +40,7 @@ export default function DisplayBox() {
 
     return (
         <div className={`displayBox ${showFullView ? 'fullView' : 'preview'}`}>
+            {/* Display the selected task details or a placeholder */}
             {selectedTask ? (
                 showFullView ? (
                     <div className="viewTaskWrapper">

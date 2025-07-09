@@ -25,6 +25,7 @@ const EditTask: React.FC<EditTaskProps> = ({ task, onTaskUpdated, onCancel }) =>
     }
   };
 
+  //show loading state while submitting
   if (isSubmitting) {
     return (
       <div className="loadingContainer">
@@ -40,16 +41,12 @@ const EditTask: React.FC<EditTaskProps> = ({ task, onTaskUpdated, onCancel }) =>
 
   return (
     <div className="editTaskContainer">
-      <div className="editHeader">
-        <span className="editIcon">✏️</span>
-        <span className="editTitle">Editing: {task.name}</span>
-      </div>
-      <TaskForm 
-        task={task}
-        onSubmit={handleSubmit}
-        onCancel={onCancel}
-        isEdit={true}
-      />
+        {/* Edit Task Header with Icon and Title */}
+        <div className="editHeader">
+            <span className="editIcon">✏️</span>
+            <span className="editTitle">Editing: {task.name}</span>
+        </div>
+        <TaskForm task={task} onSubmit={handleSubmit} onCancel={onCancel} isEdit={true}/>
     </div>
   );
 };

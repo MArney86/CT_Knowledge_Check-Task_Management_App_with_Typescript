@@ -22,22 +22,6 @@ const TaskList: React.FC = () => {
         return user.tasks.tasks.find(task => task.id === taskId);
     };
 
-    const addTask = (taskData: any) => {
-        const newTask: Partial<Task> = {
-            name: taskData.name || '',
-            description: taskData.description || '',
-            status: taskData.status || 'pending',
-            priority: taskData.priority || 'medium',
-            dueDate: taskData.dueDate
-        };
-        
-        dispatchTasks({ type: 'ADD_TASK', payload: newTask as Task });
-    };
-
-    const deleteTask = (taskId: number) => {
-        dispatchTasks({ type: 'REMOVE_TASK', payload: taskId });
-    };
-
     // Get the currently selected task
     const selectedTask = selection.selectionValue ? getTaskById(parseInt(selection.selectionValue)) : null;
 
@@ -69,14 +53,22 @@ const TaskList: React.FC = () => {
         setShowClearTasks(false);
     };
 
-    const handleTaskCreated = (taskData: any) => {
-        addTask(taskData);
+    const handleTaskCreated = (taskData: Partial<Task>) => {
+        const newTask: Partial<Task> = {
+            name: taskData.name || '',
+            description: taskData.description || '',
+            status: taskData.status || 'pending',
+            priority: taskData.priority || 'medium',
+            dueDate: taskData.dueDate
+        };
+        
+        dispatchTasks({ type: 'ADD_TASK', payload: newTask as Task });
         setShowNewTask(false);
     };
 
     const handleTaskDeleted = () => {
         if (selectedTask) {
-            deleteTask(selectedTask.id);
+            dispatchTasks({ type: 'REMOVE_TASK', payload: selectedTask.id });
             setShowDeleteTask(false);
         }
     };

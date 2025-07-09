@@ -6,6 +6,7 @@ import LogoutButton from "./LogoutButton";
 export default function HomePage() {
     return (
         <div className="homePage">
+            {/*mimic a windows 98/2000 application splashscreen with login/logout*/}
             <div className="welcomeWindow">
                 <div className="titleBar">
                     <span>Task Management System v1.0</span>
@@ -14,7 +15,7 @@ export default function HomePage() {
                 <div className="windowContent padding">
                     <h1 className="welcomeTitle">Welcome to the Task Management App</h1>
                     <p className="description">
-                        Manage your tasks efficiently with our Windows 98-style interface. 
+                        Manage your tasks efficiently with our nostalgic interface. 
                         Create, edit, and track your daily tasks with the classic computing experience.
                     </p>
                     

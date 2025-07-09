@@ -1,61 +1,298 @@
 # Task Management App with TypeScript
 
-## Task Management Features
+A modern task management application built with React, TypeScript, and Auth0 authentication, featuring a nostalgic Windows 98/2000 user interface theme.
 
-### Task Dashboard Page
+## 🚀 Features
 
-- Implement a dashboard interface for managing tasks, including features like task lists, creation, editing, and deletion.
+### Core Functionality
 
-- - Navbar
-- - 2 frame layout
-- - task details, etc on right
-- - task list box with management buttons on left
+- **Task Management**: Create, read, update, and delete tasks
+- **Task Status Tracking**: Pending, In Progress, Completed, Cancelled, Failed
+- **Priority Levels**: Low, Medium, High priority assignments
+- **Due Date Management**: Set and track task deadlines
+- **Task Details**: Rich task descriptions and metadata
+- **User Authentication**: Secure login via Auth0
 
-### Task Details Display
+### User Interface
 
-- Design a detailed view for individual tasks, displaying task information and allowing users to modify task details.
-- - Display of simple task info when selected in listbox
-- - Full display when view button selected by listbox
-- - edit page when edit button selected on page
-- - buttons to mark as active task, done task, failed task, inactive task.
+- **Windows 98/2000 Theme**: Authentic retro styling with classic UI elements
+- **Responsive Design**: Works on desktop and mobile devices
+- **Dual-Pane Layout**: Task list on the left, details on the right
+- **Modal Dialogs**: Classic Windows-style confirmation dialogs
+- **Progress Indicators**: Animated progress bars for operations
 
-### Task Creation and Editing Pages
+### Technical Features
 
-- Develop forms for creating and editing tasks, incorporating TypeScript types for data validation and error handling.
-- - form for adding/editing tasks
-- - if add flag set to true in props will add info as new task
-- - if add flag set to false in props will update task selected
+- **TypeScript**: Full type safety and enhanced developer experience
+- **React Context API**: Global state management
+- **React Router**: Client-side routing
+- **Local Storage**: Persistent task data
+- **Error Handling**: Comprehensive error management and validation
 
+## 📋 Prerequisites
 
-### Authentication and Authorization Pages
+Before you begin, ensure you have the following installed:
 
-- Implement user authentication with Auth0 and authorization pages, including registration and login.
+- **Node.js** (version 16.0 or higher)
+- **npm** (version 7.0 or higher) or **yarn**
+- A modern web browser (Chrome, Firefox, Safari, Edge)
 
-## TypeScript Integration
+## 🛠️ Installation
 
-- Utilize TypeScript to enforce type safety and enhance code readability and maintainability throughout the project.
-- Define TypeScript Interfaces or Type Aliases for data shapes and enforce type checking in React components and utility functions.
+### 1. Clone the Repository
 
-## State Management with Typed Hooks
+```bash
+git clone <repository-url>
+cd task-management-app
+```
 
-- Utilize React's useState hooks with TypeScript to manage application state effectively.
+### 2. Install Dependencies
 
-## Context API for Global State Management
+```bash
+npm install
+```
 
-- Implement the Context API in React with TypeScript for managing global application state and sharing data between components.
+### 3. Configure Auth0 (Required)
 
-## Authentication and Authorization with Auth0
+You need to set up Auth0 authentication to use the app:
 
-- Integrate Auth0 authentication services into the application for secure user authentication and authorization.
-Configure TypeScript types for Auth0 user data.
+1. **Create an Auth0 Account**: Visit [auth0.com](https://auth0.com) and create a free account
+2. **Create a New Application**:
+   - Go to Applications → Create Application
+   - Choose "Single Page Web Applications"
+   - Select React as the technology
 
-## Error Handling and Validation
+3. **Configure Application Settings**:
+   - **Allowed Callback URLs**: `http://localhost:5173`
+   - **Allowed Logout URLs**: `http://localhost:5173`
+   - **Allowed Web Origins**: `http://localhost:5173`
 
-- Implement error handling and form validation using TypeScript types and React components to provide a seamless user experience.
+4. **Update Auth0 Configuration**:
 
-## GitHub Repository
+   Edit `src/Auth0Provider.tsx` and replace the placeholder values:
 
-- Create a GitHub repository for the project and commit code regularly.
-Maintain a detailed README.md file in the repository, providing clear instructions on project setup, installation, and usage.
+   ```typescript
+   const domain = "your-auth0-domain.auth0.com";
+   const clientId = "your-client-id";
+   const redirectUri = "http://localhost:5173";
+   ```
 
-- Include documentation on project features, architecture, and implementation details.
+## 🚀 Running the Application
+
+### Development Mode
+
+```bash
+npm run dev
+```
+The application will start on `http://localhost:5173`
+
+### Production Build
+
+```bash
+npm run build
+npm run preview
+```
+
+### Linting
+
+```bash
+npm run lint
+```
+
+## 📱 How to Use the App
+
+### Getting Started
+
+1. **Launch the Application**: Open your browser and navigate to the development server URL
+2. **Authentication**: Click "Log In" to authenticate via Auth0
+3. **Dashboard Access**: After login, you'll be redirected to the task dashboard
+
+### Managing Tasks
+
+#### Creating Tasks
+
+1. Navigate to the **Tasks** page from the navigation bar
+2. Click the **"New Task"** button in the left panel
+3. Fill out the task form:
+   - **Task Name**: Enter a descriptive title
+   - **Description**: Add detailed task information
+   - **Status**: Choose from Pending, In Progress, Completed, etc.
+   - **Priority**: Set Low, Medium, or High priority
+   - **Due Date**: Optional deadline setting
+4. Click **"Create Task"** to save
+
+#### Viewing Tasks
+
+- **Task List**: All tasks appear in the left panel listbox
+- **Quick Preview**: Click any task to see basic details in the right panel
+- **Full View**: Click **"View Full Details"** for comprehensive task information
+- **Task Selection**: Selected tasks are highlighted in blue
+
+#### Editing Tasks
+
+1. Select a task from the list
+2. Click **"Edit Task"** button or use the edit button in the full view
+3. Modify any task properties in the form
+4. Click **"Update Task"** to save changes
+
+#### Task Status Management
+
+- **Status Updates**: Change task status using dropdowns in the full view
+- **Priority Changes**: Adjust priority levels as needed
+- **Progress Tracking**: Visual indicators show task status
+
+#### Deleting Tasks
+
+1. Select the task you want to delete
+2. Click **"Delete Task"** button
+3. Confirm deletion in the Windows-style dialog
+4. Task will be permanently removed
+
+#### Bulk Operations
+
+- **Clear All Tasks**: Use the "Clear All" button to remove all tasks
+- **Confirmation Required**: All destructive operations require user confirmation
+
+### Navigation
+
+- **Home**: Welcome page and authentication
+- **Tasks**: Main task management dashboard
+- **Profile**: User profile information (if authenticated)
+
+### User Interface Elements
+
+#### Windows 98/2000 Theme
+
+- **Window Frames**: Classic outset borders and title bars
+- **Buttons**: Traditional 3D button styling with hover effects
+- **Input Fields**: Inset styling with authentic focus states
+- **Dialog Boxes**: Modal dialogs with classic Windows appearance
+- **Progress Bars**: Animated striped progress indicators
+
+#### Responsive Features
+
+- **Mobile Friendly**: Adapts to smaller screens
+- **Touch Support**: Works with touch devices
+- **Keyboard Navigation**: Full keyboard accessibility
+
+## 🏗️ Project Architecture
+
+### Component Structure
+
+```
+src/
+├── components/
+│   ├── NavigationBar.tsx     # Main navigation
+│   ├── HomePage.tsx          # Welcome/landing page
+│   ├── TasksLayout.tsx       # Main task dashboard layout
+│   ├── TaskList.tsx          # Task management container
+│   ├── ListBox.tsx           # Task selection listbox
+│   ├── DisplayBox.tsx        # Task detail display
+│   ├── TaskForm.tsx          # Task creation/editing form
+│   ├── NewTask.tsx           # New task page wrapper
+│   ├── EditTask.tsx          # Edit task page wrapper
+│   ├── ViewTask.tsx          # Full task view component
+│   ├── DeleteTask.tsx        # Task deletion confirmation
+│   ├── ClearTasks.tsx        # Bulk task clearing
+│   └── Profile.tsx           # User profile component
+├── contexts/
+│   ├── UserContext.ts        # User and task state management
+│   └── SelectionContext.ts   # Task selection state
+├── hooks/                    # Custom React hooks
+├── Auth0Provider.tsx         # Auth0 configuration
+└── main.tsx                  # Application entry point
+```
+
+### State Management
+
+- **UserContext**: Manages user data and task collection
+- **SelectionContext**: Handles task selection state
+- **Local Storage**: Persists task data between sessions
+- **React State**: Component-level state management
+
+### TypeScript Integration
+
+- **Strong Typing**: All components use TypeScript interfaces
+- **Type Safety**: Compile-time error checking
+- **Data Validation**: Runtime type checking for forms
+
+## 🔧 Technical Stack
+
+### Frontend
+
+- **React 19**: Modern React with hooks and context
+- **TypeScript 5.8**: Static type checking
+- **Vite 7**: Fast build tool and development server
+- **React Router 7**: Client-side routing
+
+### Styling
+
+- **CSS3**: Custom Windows 98/2000 theme
+- **Bootstrap 5**: Grid system and utilities
+- **CSS Variables**: Consistent theming
+- **Responsive Design**: Mobile-first approach
+
+### Authentication
+
+- **Auth0**: Secure authentication and authorization
+- **JWT Tokens**: Session management
+- **OAuth 2.0**: Industry-standard authentication
+
+### Development Tools
+
+- **ESLint**: Code linting and style enforcement
+- **TypeScript Compiler**: Type checking and compilation
+- **Vite HMR**: Hot module replacement for development
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+#### Auth0 Configuration
+
+- **Error**: "Invalid redirect URI"
+  - **Solution**: Ensure redirect URIs in Auth0 dashboard match your local development URL
+
+#### Development Server
+
+- **Error**: "Port 5173 already in use"
+  - **Solution**: Either stop the existing process or use a different port with `npm run dev -- --port 3000`
+
+#### Build Issues
+
+- **Error**: TypeScript compilation errors
+  - **Solution**: Run `npm run lint` to identify and fix type issues
+
+#### Styling Issues
+
+- **Issue**: CSS not loading properly
+  - **Solution**: Clear browser cache and restart development server
+
+### Performance Tips
+
+- **Large Task Lists**: The app handles hundreds of tasks efficiently
+- **Local Storage**: Data persists between browser sessions
+- **Memory Usage**: Regularly clear completed tasks for optimal performance
+
+## 🔒 Security Considerations
+
+- **Authentication**: All user data is protected by Auth0
+- **Local Storage**: Tasks are stored locally and not transmitted to servers
+- **CSRF Protection**: Auth0 handles cross-site request forgery protection
+- **Data Validation**: All inputs are validated both client-side and through TypeScript
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is for educational purposes. Please ensure you comply with Auth0's terms of service when using their authentication services.
+
+## 🙏 Acknowledgments
+Coding Temple Bootcamp and all faculty and staff for the knowledge and lessons that have gotten me this far.
+

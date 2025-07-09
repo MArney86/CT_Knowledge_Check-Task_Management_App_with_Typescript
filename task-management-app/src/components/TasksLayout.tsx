@@ -6,6 +6,7 @@ const TasksLayout: React.FC = () => {
     const { user } = useUserContext();
   return (
     <div className="tasksLayout">
+        {/*mimic a windows 98/2000 window UI with 2 panels for selecting and displaying tasks*/}
       <div className="mainWindow">
         <div className="titleBar">
           <span>📋 Task Manager - {user.name}</span>
